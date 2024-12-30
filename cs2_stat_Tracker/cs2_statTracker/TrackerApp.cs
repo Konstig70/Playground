@@ -22,9 +22,6 @@ public class TrackerApp
     /// </summary>
     public static async Task Main()
     {
-        string directory = AppDomain.CurrentDomain.BaseDirectory;
-        string filepath = Path.Combine(directory, "stats.xml");
-        Console.WriteLine("XML document saved to: " + filepath);
         Console.Write("Please enter your steamId: ");
         string steamId = Console.ReadLine()?.Trim();
         Console.Clear();
