@@ -23,7 +23,9 @@ public class XMLHandler
     public static Dictionary<string, Statistic> FindStatistics(string[] nimet)
     {
         //Vaihe 1 haetaan kaikki tilastot, jotka ovat nimeet taulukossa
-        XDocument xmlDoc = XDocument.Load("../../../../stats.xml");
+        string directory = AppDomain.CurrentDomain.BaseDirectory;
+        string filepath = Path.Combine(directory, "stats.xml");
+        XDocument xmlDoc = XDocument.Load(filepath);
         IEnumerable<XElement> allStats = xmlDoc.Descendants("stat");
         Dictionary<string, Statistic> stats = new Dictionary<string, Statistic>();
         int value = 0;

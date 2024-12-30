@@ -2,6 +2,7 @@ using System;
 using System.Text;
 using System.Linq;
 using System.Collections.Generic;
+using System.IO;
 using System.Threading.Tasks;
 using System.Xml.Linq;
 using cs2_statTracker;
@@ -27,6 +28,9 @@ public class TrackerApp
         Console.Write("Please enter your steam web API key: ");
         string steamApiKey = Console.ReadLine()?.Trim();
         Console.Clear();
+        string directory = AppDomain.CurrentDomain.BaseDirectory;
+        string filepath = Path.Combine(directory, "stats.xml");
+        Console.WriteLine("XML document saved to: " + filepath);
         APICaller apiCaller = new APICaller(steamApiKey, steamId);
         await apiCaller.Call(new XDocument());
         //Tilastot, joita halutaan seurata

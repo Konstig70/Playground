@@ -29,12 +29,17 @@ public class APICaller : IDisposable
         try
         {
             
+            string directory = AppDomain.CurrentDomain.BaseDirectory;
+            string filepath = Path.Combine(directory, "stats.xml");
+            Console.WriteLine("XML document saved to: " + filepath);
             using (HttpResponseMessage vastaus = await client.GetAsync(APICall))
             {
                 vastaus.EnsureSuccessStatusCode();
+                Console.WriteLine("XML document saved to: " + filepath);
                 string vastausSisalto = await vastaus.Content.ReadAsStringAsync();
                 doc = XDocument.Parse(vastausSisalto);
-                doc.Save("../../../../stats.xml");
+                
+                doc.Save(filepath); 
 
             }
 
