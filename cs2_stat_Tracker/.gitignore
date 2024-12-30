@@ -1,0 +1,9 @@
+HT.sln
+HT.sln.DotSettings.user
+cs2_statTracker.csproj
+bin/
+obj/
+.idea/
+cs2_stats.xmlcs2_stats.xml
+*.sln.iml
+
