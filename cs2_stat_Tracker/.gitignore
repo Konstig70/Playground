@@ -6,4 +6,4 @@ obj/
 .idea/
 cs2_stats.xmlcs2_stats.xml
 *.sln.iml
-
+stats.xml
