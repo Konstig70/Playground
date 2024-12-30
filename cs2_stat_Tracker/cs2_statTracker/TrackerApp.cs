@@ -21,11 +21,11 @@ public class TrackerApp
     /// </summary>
     public static async Task Main()
     {
-        Console.WriteLine("Please enter your steamId: ");
-        string steamId = Console.ReadLine();
+        Console.Write("Please enter your steamId: ");
+        string steamId = Console.ReadLine()?.Trim();
         Console.Clear();
         Console.Write("Please enter your steam web API key: ");
-        string steamApiKey = Console.ReadLine();
+        string steamApiKey = Console.ReadLine()?.Trim();
         Console.Clear();
         APICaller apiCaller = new APICaller(steamApiKey, steamId);
         await apiCaller.Call(new XDocument());

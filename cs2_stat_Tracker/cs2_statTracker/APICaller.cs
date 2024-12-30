@@ -9,10 +9,11 @@ using System.Threading.Tasks;
 
 namespace cs2_statTracker;
 
-public class APICaller
+public class APICaller : IDisposable
 {
-    //Steam web API avain on henkilökohtainen, jonka avulla pääsee käsiksi metodeihin, millä tilin voi kaapata, siksi se ei ole näkyvillä
     private static string APICall;
+    private bool _disposed = false;
+    private HttpClient client = new HttpClient();
 
     public APICaller(string avain, string id)
     {
@@ -27,23 +28,55 @@ public class APICaller
     {
         try
         {
-            HttpClient client = new HttpClient();
+            
             using (HttpResponseMessage vastaus = await client.GetAsync(APICall))
             {
                 vastaus.EnsureSuccessStatusCode();
                 string vastausSisalto = await vastaus.Content.ReadAsStringAsync();
                 doc = XDocument.Parse(vastausSisalto);
                 doc.Save("../../../../stats.xml");
-                
+
             }
-            
+
         }
         catch (Exception e)
         {
-            Console.WriteLine(e);
-            throw;
+            Console.WriteLine(e.Message);
+            Console.WriteLine("exception occured when calling API, most likely due to wrong/invalid key/id. Try again.");
+            Environment.Exit(-1);
+        }
+        finally
+        {
+            Dispose();
         }
         
     }
-    
+    /// <summary>
+    /// destruktori
+    /// </summary>
+    ~APICaller()
+    {
+        Dispose(false);
+    }
+
+    /// <summary>
+    /// Varmistetaan, että tietoja ei talletu tuhoamalla olio
+    /// </summary>
+    public void Dispose()
+    {
+        Dispose(true);
+        GC.SuppressFinalize(this);
+    }
+
+    private void Dispose(bool disposing)
+    {
+        if (!_disposed)
+        {
+            if (disposing)
+            {
+                client?.Dispose();//Tuhotaan httpclient
+            }
+        }
+        _disposed = true;
+    }
 }
