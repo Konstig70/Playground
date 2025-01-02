@@ -17,16 +17,8 @@ public class IntegerSort {
     /// better bounds on the bubble sort.
     public static int[] sortByBits(int[] arr) {
         HashMap<Integer, Integer> numbers = new HashMap<>();
-        int lkm;
         for(int i = 0; i < arr.length; i++){
-            lkm = 0;
-            String bin = Integer.toBinaryString(arr[i]);
-            for(char c : bin.toCharArray()){
-                if(c == '1'){
-                   lkm++;
-                }
-            }
-            numbers.put(arr[i], lkm);
+            numbers.put(arr[i], Integer.bitCount(arr[i]));
         }
         boolean muutokset;
         int helpr;
