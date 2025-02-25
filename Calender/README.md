@@ -9,12 +9,12 @@ Date must be passed as dd/MM
 example: 11.1, would be the eleventh of january
 
 ## Support
-will try to answer questions regarding issues
+will try to answer questions regarding issues.
 
 ## Authors and acknowledgment
 Konsta Lahtinen, Konstig70.
 
-## License
+## License 
 pls no steal :(.
 
 ## Project status
