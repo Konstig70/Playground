@@ -1,0 +1,14 @@
+<component name="ArtifactManager">
+  <artifact type="jar" name="DynamicComboBox:jar">
+    <output-path>$PROJECT_DIR$/out/artifacts/DynamicComboBox_jar</output-path>
+    <root id="archive" name="DynamicComboBox.jar">
+      <element id="module-output" name="DynamicComboBox" />
+      <element id="module-output" name="fi.jyu.mit.fxgui" />
+      <element id="extracted-dir" path="$PROJECT_DIR$/../../jar/Ali.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$PROJECT_DIR$/../../jar/fxgui.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$PROJECT_DIR$/../../jar/Music.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$PROJECT_DIR$/../../jar/Graphics.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$PROJECT_DIR$/out/artifacts/SearchableObject_jar/SearchableObject.jar" path-in-jar="/" />
+    </root>
+  </artifact>
+</component>

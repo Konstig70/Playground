@@ -1,0 +1,16 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.collections.FXCollections?>
+<?import java.lang.String?>
+
+<?import fi.jyu.mit.fxgui.DynamicComboBox?>
+<DynamicComboBox xmlns="http://javafx.com/javafx/21"
+                 xmlns:fx="http://javafx.com/fxml/1"
+                 fx:id="dynamicComboBox" editable="true">
+<items>
+<FXCollections fx:factory="observableArrayList">
+    <String fx:value="Item 1"/>
+    <String fx:value="Item 2"/>
+    <String fx:value="Item 3"/>
+</FXCollections>
+</items>
+        </DynamicComboBox>

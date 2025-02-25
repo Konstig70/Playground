@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/DynamicComboBox.iml" filepath="$PROJECT_DIR$/DynamicComboBox.iml" />
+      <module fileurl="file://$PROJECT_DIR$/SearchableObject/SearchableObject.iml" filepath="$PROJECT_DIR$/SearchableObject/SearchableObject.iml" />
+      <module fileurl="file://$PROJECT_DIR$/fi.jyu.mit.fxgui/fi.jyu.mit.fxgui.iml" filepath="$PROJECT_DIR$/fi.jyu.mit.fxgui/fi.jyu.mit.fxgui.iml" />
+    </modules>
+  </component>
+</project>

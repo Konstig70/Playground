@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="jar" name="fi.jyu.mit.fxgui:jar">
+    <output-path>$PROJECT_DIR$/out/artifacts/fi_jyu_mit_fxgui_jar</output-path>
+    <root id="archive" name="fi.jyu.mit.fxgui.jar">
+      <element id="module-output" name="fi.jyu.mit.fxgui" />
+    </root>
+  </artifact>
+</component>
