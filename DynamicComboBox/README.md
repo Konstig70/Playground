@@ -8,6 +8,6 @@ This component was part of a bigger project i did for a course I took during my 
 
 ## Usage
 Download the DynamicComboBox.jar file and add it to your IDE and SceneBuilder. <br />
-Note. since, the setItems method is done as a final method I wasnt possible to override it. So for adding items directly in code use DynamicComboBoxes own methods <br />
+Note. since, the setItems method is done as a final method I wasnt possible to override it. So for adding items directly in code use DynamicComboBoxes own methods
 such as asetaSisalto, setItems is still usable, but doesnt work properly. <br />
 Also if you plan on using this on a public project I would highly appreciate giving proper credit :)
