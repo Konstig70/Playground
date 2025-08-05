@@ -1,0 +1,1 @@
+## Playground. This repo is for all of the projects I did/doing on my freetime outside of school/work that I found good/interesting enough to share. All of the code is also available to look through and all programs are free to use.
