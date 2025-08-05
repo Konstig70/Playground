@@ -4,7 +4,7 @@ This application is intended for **educational and informational purposes only**
 
 ## API Key Required
 
-To use this application, you must obtain your own API key from [Oddsdata](https://www.oddsdata.io/) and configure it in the app. Sharing or using someone else's API key may violate Oddsdata’s terms of service.
+To use this application, you must obtain your own API key from [Oddsdata](https://the-odds-api.com/) and configure it in the app. Sharing or using someone else's API key may violate Oddsdata’s terms of service.
 
 
 ## VarmatKertoimet
@@ -14,7 +14,7 @@ VarmatKertoimet on Javalla luotu sovellus, joka pyrkii seuraamaan ja esittääm 
 1. Jos ei ole niin lataa ja asenna Java (vähintään versio 23) [täältä](https://www.java.com/en/download/manual.jsp). Asennuksen jälkeen toimivuuden voi tarkastaa komenolla java -version. 
 2. Lataa VarmatKeroimet.jar sekä Lajit.json tästä reposta.
 3. Suositeltava, mutta ei pakollinen. Luo oma hakemisto lataamillesi tiedostoille ja aseta .jar sekä Lajit.json sinne.
-4. Tee itsellesi oma Oddsdata API avain, jota tarvitset sovelluksen toimiakseen. Ohjeet löytyvät [tästä](https://www.oddsdata.io/).
+4. Tee itsellesi oma Oddsdata API avain, jota tarvitset sovelluksen toimiakseen. Ohjeet löytyvät [tästä](https://the-odds-api.com/).
 5. Kun omaat avaimen laita se tiedostoon **ApiAvain.txt** ja aseta se samaan hakemistoon, missä itse VarmatKertoimet.jar ja Lajit.json ovat.
 6. Nyt sovelluksen tulisi käynnistyä komennolla java -jar VarmatKertoimet.jar
 7. Ongelma tilanteissa ilmoita bugista Playground repossa Issues kohdassa. Aloita mainitsemalla ongelman koskevan VarmatKertoimet sovellusta.
