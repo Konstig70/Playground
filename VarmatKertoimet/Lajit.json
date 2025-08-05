@@ -1,0 +1,398 @@
+[
+  {
+    "key": "baseball_mlb",
+    "group": "Baseball",
+    "title": "MLB",
+    "description": "Major League Baseball",
+    "active": true,
+    "has_outrights": false,
+    "region": "us"
+  },
+  {
+    "key": "baseball_npb",
+    "group": "Baseball",
+    "title": "NPB",
+    "description": "Nippon Professional Baseball",
+    "active": true,
+    "has_outrights": false,
+    "region": "eu"
+  },
+  {
+    "key": "basketball_wnba",
+    "group": "Basketball",
+    "title": "WNBA",
+    "description": "US Basketball",
+    "active": true,
+    "has_outrights": false,
+    "region": "us"
+  },
+  {
+    "key": "icehockey_nhl",
+    "group": "Ice Hockey",
+    "title": "NHL",
+    "description": "US Ice Hockey",
+    "active": true,
+    "has_outrights": false,
+    "region": "us"
+  },
+  {
+    "key": "soccer_argentina_primera_division",
+    "group": "Soccer",
+    "title": "Primera División - Argentina",
+    "description": "Argentine Primera División",
+    "active": true,
+    "has_outrights": false,
+    "region": "uk"
+  },
+  {
+    "key": "soccer_austria_bundesliga",
+    "group": "Soccer",
+    "title": "Austrian Football Bundesliga",
+    "description": "Austrian Soccer",
+    "active": true,
+    "has_outrights": false,
+    "region": "eu"
+  },
+  {
+    "key": "soccer_belgium_first_div",
+    "group": "Soccer",
+    "title": "Belgium First Div",
+    "description": "Belgian First Division A",
+    "active": true,
+    "has_outrights": false,
+    "region": "eu"
+  },
+  {
+    "key": "soccer_brazil_campeonato",
+    "group": "Soccer",
+    "title": "Brazil Série A",
+    "description": "Brasileirão Série A",
+    "active": true,
+    "has_outrights": false,
+    "region": "uk"
+  },
+  {
+    "key": "soccer_brazil_serie_b",
+    "group": "Soccer",
+    "title": "Brazil Série B",
+    "description": "Campeonato Brasileiro Série B",
+    "active": true,
+    "has_outrights": false,
+    "region": "uk"
+  },
+  {
+    "key": "soccer_chile_campeonato",
+    "group": "Soccer",
+    "title": "Primera División - Chile",
+    "description": "Campeonato Chileno",
+    "active": true,
+    "has_outrights": false,
+    "region": "uk"
+  },
+  {
+    "key": "soccer_china_superleague",
+    "group": "Soccer",
+    "title": "Super League - China",
+    "description": "Chinese Soccer",
+    "active": true,
+    "has_outrights": false,
+    "region": "eu"
+  },
+  {
+    "key": "soccer_concacaf_leagues_cup",
+    "group": "Soccer",
+    "title": "Leagues Cup",
+    "description": "CONCACAF Leagues Cup",
+    "active": true,
+    "has_outrights": false,
+    "region": "us"
+  },
+  {
+    "key": "soccer_conmebol_copa_libertadores",
+    "group": "Soccer",
+    "title": "Copa Libertadores",
+    "description": "CONMEBOL Copa Libertadores",
+    "active": true,
+    "has_outrights": false,
+    "region": "uk"
+  },
+  {
+    "key": "soccer_conmebol_copa_sudamericana",
+    "group": "Soccer",
+    "title": "Copa Sudamericana",
+    "description": "CONMEBOL Copa Sudamericana",
+    "active": true,
+    "has_outrights": false,
+    "region": "uk"
+  },
+  {
+    "key": "soccer_denmark_superliga",
+    "group": "Soccer",
+    "title": "Denmark Superliga",
+    "description": "Danish Soccer",
+    "active": true,
+    "has_outrights": false,
+    "region": "eu"
+  },
+  {
+    "key": "soccer_efl_champ",
+    "group": "Soccer",
+    "title": "Championship",
+    "description": "EFL Championship",
+    "active": true,
+    "has_outrights": false,
+    "region": "uk"
+  },
+  {
+    "key": "soccer_england_efl_cup",
+    "group": "Soccer",
+    "title": "EFL Cup",
+    "description": "League Cup",
+    "active": true,
+    "has_outrights": false,
+    "region": "uk"
+  },
+  {
+    "key": "soccer_england_league1",
+    "group": "Soccer",
+    "title": "League 1",
+    "description": "EFL League 1",
+    "active": true,
+    "has_outrights": false,
+    "region": "uk"
+  },
+  {
+    "key": "soccer_england_league2",
+    "group": "Soccer",
+    "title": "League 2",
+    "description": "EFL League 2 ",
+    "active": true,
+    "has_outrights": false,
+    "region": "uk"
+  },
+  {
+    "key": "soccer_epl",
+    "group": "Soccer",
+    "title": "EPL",
+    "description": "English Premier League",
+    "active": true,
+    "has_outrights": false,
+    "region": "uk"
+  },
+  {
+    "key": "soccer_finland_veikkausliiga",
+    "group": "Soccer",
+    "title": "Veikkausliiga - Finland",
+    "description": "Finnish  Soccer",
+    "active": true,
+    "has_outrights": false,
+    "region": "eu"
+  },
+  {
+    "key": "soccer_france_ligue_one",
+    "group": "Soccer",
+    "title": "Ligue 1 - France",
+    "description": "French Soccer",
+    "active": true,
+    "has_outrights": false,
+    "region": "eu"
+  },
+  {
+    "key": "soccer_france_ligue_two",
+    "group": "Soccer",
+    "title": "Ligue 2 - France",
+    "description": "French Soccer",
+    "active": true,
+    "has_outrights": false,
+    "region": "eu"
+  },
+  {
+    "key": "soccer_germany_bundesliga",
+    "group": "Soccer",
+    "title": "Bundesliga - Germany",
+    "description": "German Soccer",
+    "active": true,
+    "has_outrights": false,
+    "region": "eu"
+  },
+  {
+    "key": "soccer_germany_bundesliga2",
+    "group": "Soccer",
+    "title": "Bundesliga 2 - Germany",
+    "description": "German Soccer",
+    "active": true,
+    "has_outrights": false,
+    "region": "eu"
+  },
+  {
+    "key": "soccer_germany_liga3",
+    "group": "Soccer",
+    "title": "3. Liga - Germany",
+    "description": "German Soccer",
+    "active": true,
+    "has_outrights": false,
+    "region": "eu"
+  },
+  {
+    "key": "soccer_greece_super_league",
+    "group": "Soccer",
+    "title": "Super League - Greece",
+    "description": "Greek Soccer",
+    "active": true,
+    "has_outrights": false,
+    "region": "eu"
+  },
+  {
+    "key": "soccer_italy_serie_a",
+    "group": "Soccer",
+    "title": "Serie A - Italy",
+    "description": "Italian Soccer",
+    "active": true,
+    "has_outrights": false,
+    "region": "eu"
+  },
+  {
+    "key": "soccer_japan_j_league",
+    "group": "Soccer",
+    "title": "J League",
+    "description": "Japan Soccer League",
+    "active": true,
+    "has_outrights": false,
+    "region": "eu"
+  },
+  {
+    "key": "soccer_korea_kleague1",
+    "group": "Soccer",
+    "title": "K League 1",
+    "description": "Korean Soccer",
+    "active": true,
+    "has_outrights": false,
+    "region": "eu"
+  },
+  {
+    "key": "soccer_league_of_ireland",
+    "group": "Soccer",
+    "title": "League of Ireland",
+    "description": "Irish Soccer",
+    "active": true,
+    "has_outrights": false,
+    "region": "uk"
+  },
+  {
+    "key": "soccer_mexico_ligamx",
+    "group": "Soccer",
+    "title": "Liga MX",
+    "description": "Mexico Soccer",
+    "active": true,
+    "has_outrights": false,
+    "region": "us"
+  },
+  {
+    "key": "soccer_netherlands_eredivisie",
+    "group": "Soccer",
+    "title": "Eredivisie",
+    "description": "Dutch Soccer",
+    "active": true,
+    "has_outrights": false,
+    "region": "eu"
+  },
+  {
+    "key": "soccer_norway_eliteserien",
+    "group": "Soccer",
+    "title": "Eliteserien - Norway",
+    "description": "Norwegian Soccer",
+    "active": true,
+    "has_outrights": false,
+    "region": "eu"
+  },
+  {
+    "key": "soccer_poland_ekstraklasa",
+    "group": "Soccer",
+    "title": "Ekstraklasa",
+    "description": "Polish Soccer",
+    "active": true,
+    "has_outrights": false,
+    "region": "eu"
+  },
+  {
+    "key": "soccer_portugal_primeira_liga",
+    "group": "Soccer",
+    "title": "Primeira Liga",
+    "description": "Portuguese Soccer",
+    "active": true,
+    "has_outrights": false,
+    "region": "eu"
+  },
+  {
+    "key": "soccer_spain_la_liga",
+    "group": "Soccer",
+    "title": "La Liga",
+    "description": "Spanish Soccer",
+    "active": true,
+    "has_outrights": false,
+    "region": "eu"
+  },
+  {
+    "key": "soccer_spain_segunda_division",
+    "group": "Soccer",
+    "title": "Segunda Division",
+    "description": "Spanish Soccer",
+    "active": true,
+    "has_outrights": false,
+    "region": "eu"
+  },
+  {
+    "key": "soccer_spl",
+    "group": "Soccer",
+    "title": "Scottish Premiership",
+    "description": "Scottish Soccer",
+    "active": true,
+    "has_outrights": false,
+    "region": "uk"
+  },
+  {
+    "key": "soccer_sweden_allsvenskan",
+    "group": "Soccer",
+    "title": "Allsvenskan",
+    "description": "Swedish Soccer",
+    "active": true,
+    "has_outrights": false,
+    "region": "eu"
+  },
+  {
+    "key": "soccer_sweden_superettan",
+    "group": "Soccer",
+    "title": "Superettan",
+    "description": "Swedish Soccer",
+    "active": true,
+    "has_outrights": false,
+    "region": "eu"
+  },
+  {
+    "key": "soccer_switzerland_superleague",
+    "group": "Soccer",
+    "title": "Super League",
+    "description": "Swiss Soccer",
+    "active": true,
+    "has_outrights": false,
+    "region": "eu"
+  },
+  {
+    "key": "soccer_turkey_super_league",
+    "group": "Soccer",
+    "title": "Süper Lig",
+    "description": "Turkish Soccer",
+    "active": true,
+    "has_outrights": false,
+    "region": "eu"
+  },
+  {
+    "key": "soccer_usa_mls",
+    "group": "Soccer",
+    "title": "MLS",
+    "description": "Major League Soccer",
+    "active": true,
+    "has_outrights": false,
+    "region": "us"
+  }
+]
