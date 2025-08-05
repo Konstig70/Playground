@@ -8,16 +8,16 @@ To use this application, you must obtain your own API key from [Odds API](https:
 
 
 ## VarmatKertoimet
-VarmatKertoimet on Javalla luotu sovellus, joka pyrkii seuraamaan ja esittääm parhaimmat mahdolliset kertoimet seurattuihin urheilu otteluihin. HUOM varma voitto ei ole aina mahdollista ja sovellus pyrkii näyttämään vain parhaimmat kertoimet. Voit lisätä/poistaa seurattuja lajeja muokkaamalla Lajit.json tiedostoa (muista nuodattaa uusissa lajeissa samaa muotoa kuin mitä tiedosto sisältää). Mikäli kiinnostaa niin lähdekoodia voi tutkailla. HUOM tarvitsee oman API-avaimen toimiakseen (kts ohjeet). 
+VarmatKertoimet on Javalla luotu sovellus, joka seuraa ja pyrkii esittääm parhaimmat mahdolliset kertoimet seurattuihin urheilu otteluihin sekä näyttämään parhaimman mahdollisen voiton sijoitukseen perustuen. HUOM varma voitto ei ole aina mahdollista, sovellus pyrkii näyttämään vain parhaimmat kertoimet. Voit lisätä/poistaa seurattuja lajeja muokkaamalla Lajit.json tiedostoa (Muista säilyttää tiedoston rakenne ja formaatti alkuperäisenä, jotta sovellus toimii oikein). Mikäli kiinnostaa niin lähdekoodia voi tutkailla. HUOM tarvitsee oman API-avaimen toimiakseen (kts ohjeet). 
 
 ## Ohjeet asennukseen
 1. Jos ei ole niin lataa ja asenna Java (vähintään versio 23) [täältä](https://www.java.com/en/download/manual.jsp). Asennuksen jälkeen toimivuuden voi tarkastaa komenolla java -version. 
 2. Lataa VarmatKeroimet.jar sekä Lajit.json tästä reposta.
 3. Suositeltava, mutta ei pakollinen. Luo oma hakemisto lataamillesi tiedostoille ja aseta .jar sekä Lajit.json sinne.
 4. Tee itsellesi oma Oddsdata API avain, jota tarvitset sovelluksen toimiakseen. Ohjeet löytyvät [tästä](https://the-odds-api.com/).
-5. Kun omaat avaimen laita se tiedostoon **ApiAvain.txt** ja aseta se samaan hakemistoon, missä itse VarmatKertoimet.jar ja Lajit.json ovat.
+5. Kun omaat avaimen laita se tiedostoon **ApiAvain.txt** ja aseta se samaan kansioon, missä itse VarmatKertoimet.jar ja Lajit.json ovat.
 6. Nyt sovelluksen tulisi käynnistyä komennolla java -jar VarmatKertoimet.jar
 7. Ongelma tilanteissa ilmoita bugista Playground repossa Issues kohdassa. Aloita mainitsemalla ongelman koskevan VarmatKertoimet sovellusta.
 
 ## Käytöstä
-Voit uusia Datan painamalla **Uusi Data** nappia. Tämän jälkeen sulje ilmoitus ja odota, kunnes sovellus ilmoittaa datan päivityksen onnistuneen. Päivityksen jälkeen käynnistä sovellus uudestaan. Voit suodattaa otteluita kirjoittamalla valinta laatikkoon.
+Voit uusia Datan painamalla **Uusi Data** nappia. Tämän jälkeen sulje ilmoitus ja odota, kunnes sovellus ilmoittaa datan päivityksen onnistuneen. Päivityksen jälkeen käynnistä sovellus uudestaan. Voit Myös suodattaa otteluita kirjoittamalla valinta laatikkoon.
