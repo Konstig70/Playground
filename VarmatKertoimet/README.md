@@ -8,7 +8,7 @@ To use this application, you must obtain your own API key from [Odds API](https:
 
 
 ## VarmatKertoimet
-VarmatKertoimet on Javalla luotu sovellus, joka seuraa ja pyrkii esittääm parhaimmat mahdolliset kertoimet seurattuihin urheilu otteluihin sekä näyttämään parhaimman mahdollisen voiton sijoitukseen perustuen. HUOM varma voitto ei ole aina mahdollista, sovellus pyrkii näyttämään vain parhaimmat kertoimet. Voit lisätä/poistaa seurattuja lajeja muokkaamalla Lajit.json tiedostoa (Muista säilyttää tiedoston rakenne ja formaatti alkuperäisenä, jotta sovellus toimii oikein). Mikäli kiinnostaa niin lähdekoodia voi tutkailla. HUOM tarvitsee oman API-avaimen toimiakseen (kts ohjeet). 
+VarmatKertoimet on Javalla luotu sovellus, joka seuraa ja pyrkii esittäämään parhaimmat mahdolliset kertoimet seurattuihin urheilu otteluihin sekä näyttämään parhaimman mahdollisen voiton sijoitukseen perustuen. HUOM varma voitto ei ole aina mahdollista, sovellus pyrkii näyttämään vain parhaimmat kertoimet. Voit lisätä/poistaa seurattuja lajeja muokkaamalla Lajit.json tiedostoa (Muista säilyttää tiedoston rakenne ja formaatti alkuperäisenä, jotta sovellus toimii oikein). Mikäli kiinnostaa niin lähdekoodia voi tutkailla. HUOM tarvitsee oman API-avaimen toimiakseen (kts ohjeet). 
 
 ## Ohjeet asennukseen
 1. Jos ei ole niin lataa ja asenna Java (vähintään versio 23) [täältä](https://www.java.com/en/download/manual.jsp). Asennuksen jälkeen toimivuuden voi tarkastaa komenolla java -version. 
