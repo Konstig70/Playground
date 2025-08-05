@@ -4,7 +4,7 @@ This application is intended for **educational and informational purposes only**
 
 ## API Key Required
 
-To use this application, you must obtain your own API key from [Odds API](https://the-odds-api.com/) and configure it in the app. Sharing or using someone else's API key may violate Oddsdata’s terms of service.
+To use this application, you must obtain your own API key from [Odds API](https://the-odds-api.com/) and configure it in the app. Sharing or using someone else's API key may violate Odds API’s terms of service.
 
 
 ## VarmatKertoimet
