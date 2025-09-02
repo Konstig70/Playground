@@ -12,11 +12,11 @@ VarmatKertoimet on Javalla luotu sovellus, joka seuraa ja pyrkii esittäämään
 
 ## Ohjeet asennukseen
 1. Jos ei ole niin lataa ja asenna Java (vähintään versio 23) [täältä](https://www.java.com/en/download/manual.jsp). Asennuksen jälkeen toimivuuden voi tarkastaa komenolla java -version. 
-2. Lataa VarmatKeroimet.jar sekä Lajit.json tästä reposta.
-3. Suositeltava, mutta ei pakollinen. Luo oma hakemisto lataamillesi tiedostoille ja aseta .jar sekä Lajit.json sinne.
+2. Lataa dist.zip sekä Lajit.json tästä reposta.
+3. Suositeltava, mutta ei pakollinen. Luo oma hakemisto lataamillesi tiedostoille ja aseta purettu zip-kansio sekä Lajit.json sinne.
 4. Tee itsellesi oma Oddsdata API avain, jota tarvitset sovelluksen toimiakseen. Ohjeet löytyvät [tästä](https://the-odds-api.com/).
-5. Kun omaat avaimen laita se tiedostoon **ApiAvain.txt** ja aseta se samaan kansioon, missä itse VarmatKertoimet.jar ja Lajit.json ovat.
-6. Nyt sovelluksen tulisi käynnistyä komennolla java -jar VarmatKertoimet.jar
+5. Kun omaat avaimen laita se tiedostoon **ApiAvain.txt**. Sijoita **ApiAvain.txt** sekä **Lajit.json** purettuun zip-kansion sisälle bin-kansioon. 
+6. Nyt sovelluksen tulisi käynnistyä tuplaklikkamalla VarmatKertoimet.bat tiedostoa, joka löytyy puretun zip-kansion sisältä bin kansiosta.
 7. Ongelma tilanteissa ilmoita bugista Playground repossa Issues kohdassa. Aloita mainitsemalla ongelman koskevan VarmatKertoimet sovellusta.
 
 ## Käytöstä
