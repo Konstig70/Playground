@@ -1,4 +1,4 @@
-use std::{io::Read, net::{TcpListener, TcpStream, Shutdown}};
+use std::{io::{Read, Write}, net::{Shutdown, TcpListener, TcpStream}};
 mod httpkasittelija;
 
 fn main() {
@@ -44,6 +44,12 @@ fn kasittele_yhteys(socket: &mut TcpStream) {
     //Tulostetaan viesti ja suljetaan yhteys
     println!("{viesti}");
     let vastaus = httpkasittelija::kasittele_pyynto(viesti);
+    println!("Vastaus {}", str::from_utf8(&vastaus).unwrap_or_default());
+    //Muutetaan Vektori taulukoksi
+    match socket.write_all(&vastaus) {
+        Ok(_) => println!("Data välitetty!"),
+        Err(e) => println!("Virhe lähetyksessä {e}"),
+    }
     println!("Suljetaan yhteys");
     socket.shutdown(Shutdown::Both).expect("Yhteyttä ei voitu katkaista");
     
