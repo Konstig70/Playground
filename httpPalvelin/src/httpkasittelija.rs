@@ -34,8 +34,8 @@ pub fn kasittele_pyynto(viesti: &str) -> Vec<u8> {
    
     //HTTP ok haetaan polku ja tarkistetaan, että on oikeudet siihen.
     let resurssi = match pyynto[1] {
-        "/" => "./src/index.html".to_string(),
-        polku => "./src/".to_string() + polku, 
+        "/" => "./index.html".to_string(),
+        polku => "./".to_string() + polku, 
     };
     //Seuraavaksi varmistetaan, että on oikeudet hakea resurssi 
     if (!resurssi.ends_with(".html") && !resurssi.ends_with(".xhtml")) || resurssi.contains("..") 
@@ -49,11 +49,15 @@ pub fn kasittele_pyynto(viesti: &str) -> Vec<u8> {
     }
     println!("luetaan tiedosto...");
     //Yritetään lukea tiedostoa
+    println!("Haettu resurssi: {resurssi}");
     let tavut = fs::read(resurssi).unwrap_or_else(|_| Vec::with_capacity(0));
     //Jos luku ei onnistu eli luotiin vektori jolla ei ole kapasitettia palautetaan virhe
-    if tavut.capacity() == 0 {
+   if tavut.capacity() == 0 {
         println!("Vektoria ei voitu luoda tiedostosta!");
-        return "404 not found".to_string().into_bytes();
+        return "HTTP/1.1 404 Not Found\r\nContent-Type: text/html; charset=UTF-8\r\nContent-Length: 53\r\nConnection: close\r\n\r\n<html><body><h1>404 Not Found</h1></body></html>".to_string().into_bytes();
     }
-    return tavut;
+    let koko = tavut.len();
+    let mut paa = format!("HTTP/1.1 200 OK\r\nContent-Type: text/html; charset=UTF-8\r\nContent-Length: {koko}\r\nConnection: close\r\n\r\n").to_string().into_bytes();
+    paa.extend(tavut.into_iter());  
+    return paa;
 } 

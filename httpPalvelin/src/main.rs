@@ -51,6 +51,7 @@ fn kasittele_yhteys(socket: &mut TcpStream) {
         Err(e) => println!("Virhe lähetyksessä {e}"),
     }
     println!("Suljetaan yhteys");
+    
     socket.shutdown(Shutdown::Both).expect("Yhteyttä ei voitu katkaista");
     
 }
