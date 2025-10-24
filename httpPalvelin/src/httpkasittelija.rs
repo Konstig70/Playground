@@ -2,40 +2,42 @@ use std::fs;
 
 //Käsittelee http pyynnön ja palauttaa sitä vastaavan viestin, eli virheen tai html tiedoston
 //tavuina.
+//TODO: Voi valita mitä lähetetään eri virhe tilanteissa.
 pub fn kasittele_pyynto(viesti: &str) -> Vec<u8> {
     let osat: Vec<&str> = viesti.split("\n").collect();
     let pyynto: Vec<&str> = osat[0].split(" ").collect();
     //Tarkistetaan, että pyyntö on tarpeeksi pitkä
     if pyynto.len() < 3 {
-        return "400 Bad Request".to_string().into_bytes();
+        return "HTTP/1.1 400 Bad Request\r\nContent-Type: text/html; charset=UTF-8\r\nContent-Length: 53\r\nConnection: close\r\n\r\n<html><body><h1>400 Bad Request</h1></body></html>".to_string().into_bytes();
     }
+    //
     //Tällä hetkellä tuetaan vain GET pyyntöä
     match pyynto[0] {
         "GET" => println!("Method ok!"),
-        _ => return "405 Method Not Allowed".to_string().into_bytes(),
+        _ => return "HTTP/1.1 405 Method Not Allowed\r\nContent-Type: text/html; charset=UTF-8\r\nContent-Length: 53\r\nConnection: close\r\n\r\n<html><body><h1>405 Method Not Allowed</h1></body></html>".to_string().into_bytes(),
     }
     //Varmistetaan, että pyydetty resurssi alkaa /-merkillä
     if !pyynto[1].starts_with("/") {
         println!("Pyynnön alku virheellinen!");
-        return "400 Bad Request".to_string().into_bytes();
+        return "HTTP/1.1 400 Bad Request\r\nContent-Type: text/html; charset=UTF-8\r\nContent-Length: 53\r\nConnection: close\r\n\r\n<html><body><h1>400 Bad Request</h1></body></html>".to_string().into_bytes();
     } 
     println!("{}", pyynto[2]);
     //Varmistetaan, että HTTP:n versiota tuetaan
     if !(pyynto[2].trim() == "HTTP/1.1") && !(pyynto[2].trim() == "HTTP/1.0") {
         println!("Versiota ei tueta!");
-        return "505 HTTP Version Not Supported".to_string().into_bytes();
+        return "HTTP/1.1 505 Version Not Supported\r\nContent-Type: text/html; charset=UTF-8\r\nContent-Length: 53\r\nConnection: close\r\n\r\n<html><body><h1>505 Version Not Supported</h1></body></html>".to_string().into_bytes();
     }
     println!("Varmistetaan Host: kenttä");
     //Varmistetaan vielä, että Host-kenttä on olemassa
     if !osat[1].starts_with("Host:") {
         println!("Host-kenttä virhellinen");
-        return "400 Bad Request".to_string().into_bytes();
+        return "HTTP/1.1 400 Bad Request\r\nContent-Type: text/html; charset=UTF-8\r\nContent-Length: 53\r\nConnection: close\r\n\r\n<html><body><h1>400 Bad Request</h1></body></html>".to_string().into_bytes();
     } 
    
     //HTTP ok haetaan polku ja tarkistetaan, että on oikeudet siihen.
     let resurssi = match pyynto[1] {
         "/" => "./index.html".to_string(),
-        polku => "./".to_string() + polku, 
+        polku => ".".to_string() + polku, 
     };
     //Seuraavaksi varmistetaan, että on oikeudet hakea resurssi 
     if (!resurssi.ends_with(".html") && !resurssi.ends_with(".xhtml")) || resurssi.contains("..") 
@@ -45,7 +47,7 @@ pub fn kasittele_pyynto(viesti: &str) -> Vec<u8> {
     //lopuksi tutkitaan alkaako se "."-merkillä
     || resurssi.split("/").collect::<Vec<&str>>().last().unwrap_or_else(|| &"").starts_with(".") {
         println!("Resurssi {} ei ok", resurssi);
-        return "403 Forbidden".to_string().into_bytes();
+        return "HTTP/1.1 403 Forbidden\r\nContent-Type: text/html; charset=UTF-8\r\nContent-Length: 53\r\nConnection: close\r\n\r\n<html><body><h1>403 Forbidden</h1></body></html>".to_string().into_bytes();
     }
     println!("luetaan tiedosto...");
     //Yritetään lukea tiedostoa
