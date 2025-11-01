@@ -40,7 +40,7 @@ pub fn kasittele_pyynto(viesti: &str) -> Vec<u8> {
         polku => ".".to_string() + polku, 
     };
     //Seuraavaksi varmistetaan, että on oikeudet hakea resurssi 
-    if (!resurssi.ends_with(".html") && !resurssi.ends_with(".xhtml")) || resurssi.contains("..") 
+    if (!resurssi.ends_with(".html") && !resurssi.ends_with(".xhtml") && !resurssi.ends_with(".js") && !resurssi.ends_with(".css")) || resurssi.contains("..") 
     //Monsteri tarkastus, mutta siis tarkastetaan, että pyynnön resurssi osa eli esim /index.html
     //ei ole piilotettu eli alkaa "."-merkillä. Purettuna, esin jaetaan merkkijono "/"-merkillä
     //kerätään se &str vektoriksi, otetaan sieltä viimeinen elementti tai tyhjä merkkijono ja
@@ -52,14 +52,31 @@ pub fn kasittele_pyynto(viesti: &str) -> Vec<u8> {
     println!("luetaan tiedosto...");
     //Yritetään lukea tiedostoa
     println!("Haettu resurssi: {resurssi}");
-    let tavut = fs::read(resurssi).unwrap_or_else(|_| Vec::with_capacity(0));
+    let tavut = fs::read(&resurssi).unwrap_or_else(|_| Vec::with_capacity(0));
     //Jos luku ei onnistu eli luotiin vektori jolla ei ole kapasitettia palautetaan virhe
    if tavut.capacity() == 0 {
         println!("Vektoria ei voitu luoda tiedostosta!");
         return "HTTP/1.1 404 Not Found\r\nContent-Type: text/html; charset=UTF-8\r\nContent-Length: 53\r\nConnection: close\r\n\r\n<html><body><h1>404 Not Found</h1></body></html>".to_string().into_bytes();
     }
     let koko = tavut.len();
-    let mut paa = format!("HTTP/1.1 200 OK\r\nContent-Type: text/html; charset=UTF-8\r\nContent-Length: {koko}\r\nConnection: close\r\n\r\n").to_string().into_bytes();
+    //Varmistetaan vielä minkä tyyppistä dataa lähetetään takaisin
+    let tyyppi: &str;
+    //Voidaan suoraan unwrap sillä tässä vaiheessa ei pitäisi olla resurssia, jossa ei ole . 
+    let loppu = resurssi.split_at(resurssi.rfind(".").unwrap() + 1).1;
+    
+    match loppu {
+        "js" => tyyppi = "application/javascript",
+        "html" => tyyppi = "text/html; charset=UTF-8",
+        "htm" => tyyppi = "text/html; charset=UTF-8",
+        "xhtml" => tyyppi = "application/xhtml+xml",
+        "css" => tyyppi = "text/css",
+        "json" => tyyppi = "application/json",
+        "txt" => tyyppi = "text/plain; charset=UTF-8",
+        "xml" => tyyppi = "application/xml",
+        _ => return "HTTP/1.1 415 Unsupported Media Type\r\nContent-Type: text/html; charset=UTF-8\r\nContent-Length: 207\r\nConnection: close\r\n\r\n<html>\n  <head>\n    <title>415 Unsupported Media Type</title>\n  </head>\n  <body>\n    <h1>415 Unsupported Media Type</h1>\n    <p>The requested file type is not supported by this server.</p>\n  </body>\n</html>".to_string().into_bytes(),
+
+    }; 
+    let mut paa = format!("HTTP/1.1 200 OK\r\nContent-Type: {tyyppi}\r\nContent-Length: {koko}\r\nConnection: close\r\n\r\n").to_string().into_bytes();
     paa.extend(tavut.into_iter());  
     return paa;
 } 

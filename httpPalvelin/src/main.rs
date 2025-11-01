@@ -1,8 +1,16 @@
-use std::{io::{Read, Write}, net::{Shutdown, TcpListener, TcpStream}};
+use std::{env, io::{Read, Write}, net::{Shutdown, TcpListener, TcpStream}};
 mod httpkasittelija;
 
 fn main() {
-    let kuuntelija = TcpListener::bind("127.0.0.1:7878").unwrap();
+    //Haetaan muuttujista osoite ja portti
+    let args:Vec<String> = env::args().collect();
+    //Hyväksytään vain kaksi argumenttia käynnistyksen lisäksi
+    if args.len() != 3 {
+        panic!("Käynnistä palvelin kahdella argumentilla, ensin osoite ja sitten portti");
+    }
+    let osoite = format!("{}:{}", args[1], args[2]);
+    println!("{osoite}");
+    let kuuntelija = TcpListener::bind(osoite).unwrap();
     println!("Palvelin käynnissä!");
     for virta in kuuntelija.incoming() {
         match virta {
