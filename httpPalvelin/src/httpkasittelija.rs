@@ -63,7 +63,7 @@ pub fn kasittele_pyynto(viesti: &str) -> Vec<u8> {
     let tyyppi: &str;
     //Voidaan suoraan unwrap sillä tässä vaiheessa ei pitäisi olla resurssia, jossa ei ole . 
     let loppu = resurssi.split_at(resurssi.rfind(".").unwrap() + 1).1;
-    
+    //Valitaan oikea tyyppi lähetettävälle tiedostolle
     match loppu {
         "js" => tyyppi = "application/javascript",
         "html" => tyyppi = "text/html; charset=UTF-8",
