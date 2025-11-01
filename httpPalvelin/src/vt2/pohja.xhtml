@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="fi" xmlns="http://www.w3.org/1999/xhtml" xml:lang="fi">
+    <head>
+        <meta charset="utf-8"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"/> 
+        <script src="https://users.jyu.fi/~tjlahton/tiea2120/vt/vt2/vt2-apufunktiot.js"></script>
+        <script src="vt2.js"></script>
+        <link rel="StyleSheet" href="vt2.css" type="text/css" />
+        <title>VT2 - 2025 kevät - TIEA2120</title>
+    </head>
+    <body>
+
+<!-- Tämän tiedoston sisältöä saa muuttaa vapaasti tästä eteenpäin. Yläpuolelta ei saa muuttaa -->
+<h1>Tulospalvelu</h1>
+<table>
+        <caption>Tulokset</caption>
+        <thead>
+            <tr>
+                <th>Sarja</th>
+                <th id="toinen">Joukkue</th>
+            </tr>
+        </thead>
+        <tbody id="tulosTaulukko">
+
+        </tbody>
+</table>
+<h2>Lisää rasti</h2>
+<!--
+Tähän tulee rastin lisäämistä varten lomake
+Koodi saa olla mitä tahansa, mutta sen on oltava vähintään yhden merkin pituinen eikä pelkkä whitespace kelpaa
+Lat täytyy olla numero
+Lon täytyy olla numero
+Jos kaikkia tietoja ei ole täytetty oikein, niin lisäystä ei tehdä.
+
+Sivun lomakkeissa saa käyttää input-elementeissä vain seuraavia tyyppejä: text, radio, checkbox ja submit. 
+Syöttökentissä ei saa käyttää html-koodissa määriteltäviä rajoitteita kuten required, pattern, min, max, 
+maxlength tai minlength. Kaikkien tehtävässä mainittujen rajoitteiden tarkistukset on tehtävä 
+javascript-koodissa.
+
+-->
+
+<form id="lisaaRasti" name="lisaaRasti">
+    <fieldset>
+    <legend>Lisää rasti</legend>
+        <div class="tekstilomake">
+        <p>
+            <label for="koodi">Koodi</label>
+            <input type="text" id="koodi" name="koodi" title="Kirjoita rastin koodi tähän." />
+        </p>
+        </div>
+        <div class="tekstilomake">
+        <p>
+            <label for="lat">Lat</label>
+            <input type="text" id="lat" name="lat" title="Kirjoita rastin lat-koordinaatti tähän." />
+        </p>
+        </div>
+        <div class="tekstilomake">
+        <p>
+            <label for="lon">Lon</label>
+            <input type="text" id="lon" name="lon" title="Kirjoita rastin lon-koordinaatti tähän." />
+        </p>
+        </div>
+        <p>
+            <input type="submit" id="lahetaRasti" value="Lisää rasti" />
+        </p>
+    </fieldset>
+</form>
+
+
+
+<h2>Joukkue</h2>
+        
+<!--
+Kolmostasolla täydennä tähän lomake jolla voi lisätä uuden joukkueen tai muokata
+jo olemassa olevan joukkueen tietoja. 
+
+Sivun lomakkeissa saa käyttää input-elementeissä vain seuraavia tyyppejä: text, radio, checkbox ja submit. 
+Syöttökentissä ei saa käyttää html-koodissa määriteltäviä rajoitteita kuten required, pattern, min, max, 
+maxlength tai minlength. Kaikkien tehtävässä mainittujen rajoitteiden tarkistukset on tehtävä 
+javascript-koodissa.
+
+Joukkueelta kysytään nimi, sarja ja lista jäsenistä. 
+
+Sarja on valittava radiopainikkeilla, joista yhden on oltava aina valittuna
+
+Jäseniä voi syöttää n kappaletta. Jäseniä on aina syötettävä vähintään
+kaksi kappaletta eli alussa on oltava kentät kahden jäsenen nimille. 
+
+Uusia syöttökenttiä luodaan automaattisesti tarpeen mukaan 
+
+Jos kaikkia pyydettyjä tietoja (joukkueen nimi ja väh. kaksi jäsentä ) ei ole
+syötetty, niin lisäystä ei tehdä. 
+
+Lisää joukkue -painike on disabloituna kunnes pakolliset tiedot on syötetty.
+
+Onnistuneen lisäämisen jälkeen lomakkeen kenttien sisältö tyhjennetään.
+
+Näytä lomakkeella vain jompikumpi painikkeista: 
+  - Näytä "Lisää joukkue"-painike silloin, kun ollaan lisäämässä uutta joukkuetta
+  - Näytä "Tallenna muutokset"-painike silloin, kun ollaan muokkaamassa olemassa olevan joukkueen tietoja
+
+Uusi joukkue on lisättävä myös sivulla näkyvään joukkuelistaukseen oikealle 
+paikalle. 
+
+Joukkueen pisteet ovat 0, kuljettu matka on 0 km ja käyttämä aika on 00:00:00.
+-->
+<form id="lisaaJoukkue" name="lisaaJoukkue">
+    <fieldset>
+        <legend>Uusi joukkue</legend>
+        <div class="tekstilomake">
+        <p>
+            <label for="jnimi">Nimi</label>
+            <input type="text" id="jnimi" name="nimi" title="Kirjoita joukkueen nimi tähän." />
+        </p>
+        </div>
+        <div class="lisaaSarja">
+            <fieldset id="valitseSarja">
+                <legend>Sarja</legend>
+                
+            </fieldset>
+        </div>
+        <div class="lisaaLeimaus">
+            <fieldset id="leimaustavat">
+                <legend>Leimaustavat</legend>
+            </fieldset>
+        </div>
+        <div class="lisaaJasenet">
+            <fieldset id="jasenLisaus">
+                <legend>Jäsenet</legend>
+                <p>
+                    <input type="hidden" name="jid" id="jid" />
+                    <label class="jasenLisaus">
+                        Jäsen 1
+                        <input type="text" name="jasenLisää" id="jasen1" />
+                    </label>
+                    
+                </p>
+                <p>
+                    <label class="jasenLisaus">
+                        Jäsen 2
+                        <input type="text" name="jasenLisää" id="jasen2" />
+                    </label>
+                    
+                </p>
+            </fieldset>
+        </div>
+        <div class="rastit">
+            <fieldset id="rastileimaukset">
+                <legend>Rastileimaukset</legend>
+                <input type="button" id="uusiRasti" value="Uusi rasti" />
+                <div class="uudenRastintiedot">
+                    <label>Valitse rastin koodi:</label>
+                    <p id="valitsin">
+                        
+                        
+                    </p>
+                    <p>
+                        <label >Syötä aika </label>
+                        <input type="datetime-local" name="rastinpvm" id="rastinpvm" />
+                    </p>
+                    <input type="button" id="tallennaRasti" value="lisää Rasti" />
+                </div>
+            </fieldset>
+            
+        </div>
+        <p>
+            <input type="submit" id="laheta" value="Lisää joukkue" />
+            <input type="button" id="muokkaa" value="Tallenna muutokset" />
+        </p>
+    </fieldset>
+</form>
+
+<!--
+Viitostasolla lisää saman lomakkeen yhteyteen listaus joukkueen rastileimauksista. 
+
+Mahdollista leimausten täydellinen muokkaaminen eli leimauksen voi kokonaan 
+poistaa tai vaihtaa leimattua rastia tai leimauksen kellonaikaa. 
+
+Joukkueelle voi myös lisätä uusia leimauksia. 
+
+Rasti valitaan radiopainikkeilla
+
+-->
+<h2>Rastit</h2>
+
+
+<!-- Tähän tulee listaus kaikista rastikoodeista -->  
+ <ul id="rastikoodit">
+
+ </ul>    
+
+<!-- Tästä eteenpäin on vain apuvälineenä käytettäviä skriptejä. Älä poista tai muuta -->
+<!-- HTMLinspectoria käytetään sivun live-muutosten validointiin. Kannattaa
+vielä varmuuden vuoksi ajaa välillä myös W3C:n validaattori -->
+<script src="https://appro.mit.jyu.fi/tools/htmlinspector/html-inspector.js"></script>
+<!-- Sivun validoinnin W3C:n validaattorilla voit tehdä milloin tahansa näppäinyhdistelmällä CTRL+ALT+V -->
+<script src="https://appro.mit.jyu.fi/tools/validator/validator.user.js"></script>
+<script src="https://appro.mit.jyu.fi/tools/jshint/jshint.js"></script>
+<script src="https://appro.mit.jyu.fi/tools/jshint/jshint.user.js"></script>
+<script src="https://appro.mit.jyu.fi/tools/htmlinspector/htmlinspector-live.js"></script>
+</body>
+</html>
