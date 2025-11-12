@@ -2,7 +2,7 @@ use std::fs;
 
 //Käsittelee http pyynnön ja palauttaa sitä vastaavan viestin, eli virheen tai html tiedoston
 //tavuina.
-//TODO: Voi valita mitä lähetetään eri virhe tilanteissa.
+//TODO: RWLock sitten kun tuetaan muita metodeja
 pub fn kasittele_pyynto(viesti: &str) -> Vec<u8> {
     let osat: Vec<&str> = viesti.split("\n").collect();
     let pyynto: Vec<&str> = osat[0].split(" ").collect();
