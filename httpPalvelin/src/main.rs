@@ -1,4 +1,4 @@
-use std::{env, io::{Read, Write}, net::{Shutdown, TcpListener, TcpStream}};
+use std::{env, io::{Read, Write}, net::{Shutdown, TcpListener, TcpStream}, thread};
 mod httpkasittelija;
 
 fn main() {
@@ -6,7 +6,9 @@ fn main() {
     let args:Vec<String> = env::args().collect();
     //Hyväksytään vain kaksi argumenttia käynnistyksen lisäksi
     if args.len() != 3 {
-        panic!("Käynnistä palvelin kahdella argumentilla, ensin osoite ja sitten portti");
+        println!("Virhe käynnistyksessä:");
+        println!("Käynnistä palvelin kahdella argumentilla, ensin osoite jonka jälkeen välilyönnillä erotettuna portti");
+        std::process::exit(-1);
     }
     let osoite = format!("{}:{}", args[1], args[2]);
     println!("{osoite}");
@@ -14,9 +16,12 @@ fn main() {
     println!("Palvelin käynnissä!");
     for virta in kuuntelija.incoming() {
         match virta {
-            Ok(mut socket) => kasittele_yhteys(&mut socket),
-            Err(e) => eprint!("Ei saatu yhteyttä: {e:?}"),
-        }
+            //Voitaisiin periaatteessa ottaa omistajuus, mutta sitten tulee warningia, että ei
+            //tarvitse olla mutable, vaikka tarvitsee, joten pidetään mutable viittaus
+            //<--------TODO-------->: Threadpool, jotta ei lopu säikeet kesken 
+            Ok(mut socket) => thread::spawn(move || kasittele_yhteys(&mut socket)),
+            Err(e) => thread::spawn(move || eprint!("Ei saatu yhteyttä: {e:?}")),
+        };
     }
     
 }
