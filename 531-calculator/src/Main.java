@@ -9,7 +9,7 @@ import java.math.BigDecimal;
 
 //@author: Konsta Lahtinen
 //@version: 12.9.2024
-//Summary: Ohjelma, joka automatisoi wendler 531 treeni ohjelman laskut. EI OLIOMAINEN RAKENNE (SORI VESA), KORJAAN EHKÄ JOS JAKSAN
+//Summary: Ohjelma, joka automatisoi wendler 531 treeni ohjelman laskut.
 public class Main {
     private static final File sets = new File("sets.txt");
     private static final File Pr = new File("Pr.txt");
@@ -125,14 +125,14 @@ public class Main {
         try {
             BufferedWriter Fw = new BufferedWriter(new FileWriter(sets, true));
             writeLine(Fw, "Viikko 1:");
-            writeFormatted(Fw, (float) (n * 0.65)," x 3+");
-            writeFormatted(Fw, (float) (n * 0.75)," x 3");
-            writeFormatted(Fw, (float) (n * 0.85)," x 3");
+            writeFormatted(Fw, (float) (n * 0.65)," x 5");
+            writeFormatted(Fw, (float) (n * 0.75)," x 5");
+            writeFormatted(Fw, (float) (n * 0.85)," x 5+");
 
             writeLine(Fw, "Viikko 2:");
-            writeFormatted(Fw, (float) (n * 0.70)," x 5");
-            writeFormatted(Fw, (float) (n * 0.80)," x 5");
-            writeFormatted(Fw, (float) (n * 0.90)," x 5+");
+            writeFormatted(Fw, (float) (n * 0.70)," x 3");
+            writeFormatted(Fw, (float) (n * 0.80)," x 3");
+            writeFormatted(Fw, (float) (n * 0.90)," x 3+");
             writeLine(Fw, "Viikko 3:");
             writeFormatted(Fw, (float) (n * 0.75)," x 5");
             writeFormatted(Fw, (float) (n * 0.85)," x 3");
