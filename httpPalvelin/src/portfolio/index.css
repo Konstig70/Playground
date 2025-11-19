@@ -1,0 +1,268 @@
+/* Reset and Base Styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html, body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  height: 100%;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  overflow-x: hidden;
+}
+
+/* Paragraphs */
+p {
+  padding: 0 2vw;
+  margin-bottom: 20px;
+  font-size: 1.1em;
+  line-height: 1.8;
+  color: #444;
+  text-align: justify;
+}
+
+/* Lists */
+ul {
+  margin: 20px 0 20px 40px;
+  padding: 0;
+}
+
+li {
+  margin-bottom: 10px;
+  line-height: 1.6;
+  margin-left: 25px;
+}
+
+ul ul {
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+/* Links */
+a {
+  color: #667eea;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+a:hover {
+  color: #764ba2;
+  text-decoration: underline;
+}
+
+/* Header/Title Section */
+.otsikko {
+  text-align: center;
+  padding: 40px 20px;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  margin: 20px auto;
+  border-radius: 20px 20px 20px 20px;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+  width: 80%;
+}
+
+.otsikko h1 {
+  font-size: 2.5em;
+  font-weight: 700;
+  letter-spacing: 1px;
+  margin: 0;
+}
+
+h1.otsikko {
+  font-size: 2em;
+  padding: 20px;
+  margin: 60px auto 30px auto;
+  border-radius: 10px;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+  width: 30vw;
+  color: white;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+}
+
+/* Menu Section */
+.menuYlin {
+  position: fixed;
+  right: 10px;
+  top: 10%;
+  padding: 10px 20px;
+  z-index: 1000;
+}
+
+.menuNappi {
+  text-align: right;
+  margin-bottom: 10px;
+}
+
+.menuNappi button {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  border: none;
+  font-size: 1.8em;
+  padding: 10px 20px;
+  cursor: pointer;
+  border-radius: 8px;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+}
+
+.menuNappi button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 12px rgba(0,0,0,0.2);
+}
+
+.menuNappi button:active {
+  transform: translateY(0);
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.menu {
+  display: none;
+  background: white;
+  border: 2px solid #667eea;
+  border-radius: 10px;
+  padding: 20px;
+  margin-top: 10px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
+
+.menu ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.menu li {
+  margin: 10px 0;
+}
+
+.menu a {
+  color: #333;
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.menu a:hover {
+  color: #764ba2;
+}
+
+/* Contact Cards */
+.contact-cards {
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+  flex-wrap: wrap;
+  margin-bottom: 10px;
+}
+
+.contact-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  padding: 20px 30px;
+  border-radius: 15px;
+  width: 160px;
+  text-decoration: none;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.contact-card img {
+  width: 50px;
+  height: 50px;
+  margin-bottom: 15px;
+}
+
+.contact-card span {
+  font-size: 1.2em;
+  font-weight: 600;
+}
+
+.contact-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  #root > div > div {
+    padding: 15px;
+    margin: 0;
+  }
+
+  .otsikko h1 {
+    font-size: 2em;
+  }
+
+  h1.otsikko {
+    font-size: 1.6em;
+    margin: 40px 0 20px 0;
+  }
+
+  p {
+    font-size: 1em;
+    text-align: left;
+  }
+
+  ul {
+    margin-left: 25px;
+  }
+
+  
+
+  .menu {
+    width: 200px;
+    right: 10px;
+  }
+
+  .contact-card {
+    width: 140px;
+    padding: 15px 20px;
+  }
+
+  .contact-card span {
+    font-size: 1em;
+  }
+}
+
+@media (max-width: 480px) {
+  .otsikko h1 {
+    font-size: 1.6em;
+  }
+
+  h1.otsikko {
+    font-size: 1.4em;
+  }
+
+  .menuNappi button {
+    font-size: 1.5em;
+    padding: 8px 16px;
+  }
+
+  .menu {
+    width: 80vw;
+    right: 10px;
+  }
+
+  .contact-card {
+    width: 120px;
+    padding: 12px 15px;
+  }
+
+  .contact-card img {
+    width: 40px;
+    height: 40px;
+  }
+
+  .contact-card span {
+    font-size: 0.95em;
+  }
+}
+
+/* Hide scrollbar by default */
+body::-webkit-scrollbar {
+  width: 0px;
+}

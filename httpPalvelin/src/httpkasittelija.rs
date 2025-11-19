@@ -40,7 +40,7 @@ pub fn kasittele_pyynto(viesti: &str) -> Vec<u8> {
         polku => ".".to_string() + polku, 
     };
     //Seuraavaksi varmistetaan, että on oikeudet hakea resurssi 
-    if (!resurssi.ends_with(".html") && !resurssi.ends_with(".xhtml") && !resurssi.ends_with(".js") && !resurssi.ends_with(".css")) || resurssi.contains("..") 
+    if (!resurssi.ends_with(".html") && !resurssi.ends_with(".xhtml") && !resurssi.ends_with(".js") && !resurssi.ends_with(".css") && !resurssi.ends_with(".jsx")) || resurssi.contains("..") 
     //Monsteri tarkastus, mutta siis tarkastetaan, että pyynnön resurssi osa eli esim /index.html
     //ei ole piilotettu eli alkaa "."-merkillä. Purettuna, esin jaetaan merkkijono "/"-merkillä
     //kerätään se &str vektoriksi, otetaan sieltä viimeinen elementti tai tyhjä merkkijono ja
@@ -66,6 +66,7 @@ pub fn kasittele_pyynto(viesti: &str) -> Vec<u8> {
     //Valitaan oikea tyyppi lähetettävälle tiedostolle
     match loppu {
         "js" => tyyppi = "application/javascript",
+        "jsx" => tyyppi = "application/javascript",
         "html" => tyyppi = "text/html; charset=UTF-8",
         "htm" => tyyppi = "text/html; charset=UTF-8",
         "xhtml" => tyyppi = "application/xhtml+xml",
