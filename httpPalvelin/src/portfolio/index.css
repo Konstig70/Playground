@@ -18,7 +18,7 @@ p {
   margin-bottom: 20px;
   font-size: 1.1em;
   line-height: 1.8;
-  color: #444;
+  color: #ffffff;
   text-align: justify;
 }
 
@@ -32,22 +32,24 @@ li {
   margin-bottom: 10px;
   line-height: 1.6;
   margin-left: 25px;
+  color: #ffffff;
 }
 
 ul ul {
   margin-top: 10px;
   margin-bottom: 10px;
+  color: #ffffff;
 }
 
 /* Links */
 a {
-  color: #667eea;
+  color: #79d4ff;
   text-decoration: none;
   transition: color 0.3s ease;
 }
 
 a:hover {
-  color: #764ba2;
+  color: #b0f0ff;
   text-decoration: underline;
 }
 
@@ -144,7 +146,7 @@ h1.otsikko {
 }
 
 .menu a:hover {
-  color: #764ba2;
+  color: #667eea;
 }
 
 /* Contact Cards */
@@ -210,8 +212,6 @@ h1.otsikko {
   ul {
     margin-left: 25px;
   }
-
-  
 
   .menu {
     width: 200px;
