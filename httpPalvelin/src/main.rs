@@ -55,12 +55,13 @@ fn kasittele_yhteys(socket: &mut TcpStream) {
     //Muutetaan data tavuista, merkkijono viestiksi
     let viesti = std::str::from_utf8(&vastaanotetut).expect("Ei validia utf-8");
     //Tulostetaan viesti ja suljetaan yhteys
+    println!("Vastaanoteettiin seuraava:");
     println!("{viesti}");
     let vastaus = httpkasittelija::kasittele_pyynto(viesti);
-    println!("Vastaus {}", str::from_utf8(&vastaus).unwrap_or_default());
+    //println!("Vastaus {}", str::from_utf8(&vastaus).unwrap_or_default());
     //Muutetaan Vektori taulukoksi
     match socket.write_all(&vastaus) {
-        Ok(_) => println!("Data välitetty!"),
+        Ok(_) => println!("Vastaus välitetty!"),
         Err(e) => println!("Virhe lähetyksessä {e}"),
     }
     println!("Suljetaan yhteys");
