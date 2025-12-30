@@ -1,4 +1,5 @@
-use std::{env, io::{Read, Write}, net::{Shutdown, TcpListener, TcpStream}, thread};
+use std::{env, io::{Read, Write}, net::{Shutdown, TcpListener, TcpStream} };
+use threadpool::ThreadPool;
 mod httpkasittelija;
 
 fn main() {
@@ -13,14 +14,16 @@ fn main() {
     let osoite = format!("{}:{}", args[1], args[2]);
     println!("{osoite}");
     let kuuntelija = TcpListener::bind(osoite).unwrap();
+    //Luodaan thread pool, worker = CPU ydin eli 6
+    let pool = ThreadPool::new(6);
     println!("Palvelin käynnissä!");
     for virta in kuuntelija.incoming() {
         match virta {
             //Voitaisiin periaatteessa ottaa omistajuus, mutta sitten tulee warningia, että ei
             //tarvitse olla mutable, vaikka tarvitsee, joten pidetään mutable viittaus
-            //<--------TODO-------->: Threadpool, jotta ei lopu säikeet kesken 
-            Ok(mut socket) => thread::spawn(move || kasittele_yhteys(&mut socket)),
-            Err(e) => thread::spawn(move || eprint!("Ei saatu yhteyttä: {e:?}")),
+            //Ja nyt pooli kanssa että ei tuu liikaa yhteyksiä samaan aikaan ja säikeet loppuu
+            Ok(mut socket) => pool.execute(move || kasittele_yhteys(&mut socket)),
+            Err(e) => pool.execute(move || eprint!("Ei saatu yhteyttä: {e:?}")),
         };
     }
     

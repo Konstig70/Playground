@@ -35,8 +35,10 @@ pub fn kasittele_pyynto(viesti: &str) -> Vec<u8> {
     } 
    
     //HTTP ok haetaan polku ja tarkistetaan, että on oikeudet siihen.
+    let osa = pyynto[1];
+    println!("{osa}");  
     let resurssi = match pyynto[1] {
-        "/" => "./index.html".to_string(),
+        polku if polku.ends_with("/") => ".".to_string() + polku + "index.html",
         polku => ".".to_string() + polku, 
     };
     //Seuraavaksi varmistetaan, että on oikeudet hakea resurssi 
@@ -65,6 +67,7 @@ pub fn kasittele_pyynto(viesti: &str) -> Vec<u8> {
     let loppu = resurssi.split_at(resurssi.rfind(".").unwrap() + 1).1;
     //Valitaan oikea tyyppi lähetettävälle tiedostolle
     match loppu {
+        //Tuetaan seuraavia muotoja:
         "js" => tyyppi = "application/javascript",
         "jsx" => tyyppi = "application/javascript",
         "html" => tyyppi = "text/html; charset=UTF-8",

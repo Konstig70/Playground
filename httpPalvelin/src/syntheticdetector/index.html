@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Video Analysis Platform</title>
+  <link rel="stylesheet" href="src/style.css">
+</head>
+<body>
+
+<header>
+  <h1>🛡️ Catch lies, one frame at a time</h1>
+  <p>Analyze videos for authenticity, anomalies, and metadata in one place. Simply upload a video and press the analyze button to analyze any video for synthetic tampering. (Note that the analysis is not 100% accurate and can make mistakes especially in low quality videos).</p>
+</header>
+
+<div class="container">
+  
+  <div class="upload-section">
+    <h2>▶️Upload Video</h2>
+    <input type="text" id="youtubeLink" placeholder="https://www.youtube.com/watch?v=example" style="width: 80%;">
+    <br><br>
+    <input type="file" id="videoFile" accept="video/mp4,video/avi,video/mov">
+    <br><br>
+    <button onclick="submitVideo()">Analyze Video</button>
+    <div class="metricsContainer"> </div>
+  </div>
+
+  <div id="status" class="status"></div>
+
+  <div id="videoPreview"></div>
+  
+  <div id="results" class="info-card">
+      
+  </div>
+
+  <details id="technical-data-div" class="info-card">
+    <summary>Click here to view tecnical data</summary>
+     <p id="technical-data"></p>   
+  </details
+  
+</div>
+
+<script src="./src/main.js"></script>
+
+</body>
+</html>
+

@@ -7,7 +7,6 @@
     <link href="./portfolio/index.css" rel="stylesheet">
     <title>Konsta Lahtinen</title>
     <style>
-      /* Optional: keep menu initially hidden */
       #menu {
         display: none;
       }
@@ -21,7 +20,6 @@
             <h1 id="alku">Konsta Lahtinen portfolio</h1>
           </div>
 
-          <!-- Menu Button and Menu -->
           <div class="menuYlin">  
             <div class="menuNappi">
               <button onclick="naytaMenu()">☰</button>
@@ -30,7 +28,7 @@
               <ul>
                 <li><a href="#" onclick="tuoEsiin('alku')">Top</a></li>
                 <li><a href="#" onclick="tuoEsiin('tietoja')">About</a></li>
-                <li><a href="#" onclick="tuoEsiin('tyot')">Works</a></li>
+                <li><a href="#" onclick="tuoEsiin('tyot')">Work</a></li>
                 <li><a href="#" onclick="tuoEsiin('yhtTiedot')">Contact</a></li>
               </ul>
             </div>
@@ -46,10 +44,10 @@
               <ul>
                 <li>Java</li>
                 <li>Rust</li>
+                <li>JavaScript/Node/React</li>
                 <li>C#</li>
-                <li>JavaScript/React</li>
-                <li>Python</li>
                 <li>C and C++</li>
+                <li>Python</li>
               </ul>
             </li>
             <li>I like building all kinds of software, but currently I am very interested in systems development, especially with Rust</li>
@@ -59,26 +57,28 @@
 
           <p>If you would like to check out my work including everything from hobby projects and school work to professional work, then please check out my GitHub page, which is linked at the end.</p>
 
-          <h1 id="tyot" class="otsikko">Works</h1>
-          <p>I have been working as a freelance AI coding trainer for Scale AI under their platform Outlier since April 2025.</p>
+          <h1 id="tyot" class="otsikko">Work</h1>
+          <p>I have been working as a freelance AI coding trainer for Scale AI under their platform Outlier since April 2025. I have worked in roles: Contributor, Reviewer, Senior reviewer and Briefly a QC Auditor.</p>
 
           <p>At Outlier my responsibilities included:</p>
           <ul>
             <li>Analyzing and rating code and fixing possible errors (syntax, logic, etc.)</li>
             <li>Producing SOTA (state of the art) responses to prompts, including analyzing provided code's logic and developing scripts/smaller programs</li>
             <li>Later as a reviewer, responsible for reviewing other contributors' ratings and fixing them</li>
-            <li>Mainly worked with Java, JavaScript, and very rarely Python</li>
+            <li>As a QC (Quality Control) Auditor our team was responsible for every programming projects quality, which we kept up by auditing batches of tasks before they were sent to the customer. The work was similar to a reviewer, the main differences being that we audited all programming projects and didn't fix any found mistakes.
+            <li>I mainly worked with Java, JavaScript, and very rarely Python</li>
           </ul>
 
-          <p>I have also worked at the University of Jyväskylä as a teaching assistant in the course Programming 1, where my job was to teach and help new students with learning C# and general programming concepts and also rate their final projects. In addition, I was part of the development of the university's C# game-making library <a href="https://github.com/Jypeli-JYU/Jypeli">Jypeli</a>.</p>
+          <p>I have also worked at the University of Jyväskylä as a teaching assistant in the course Programming 1 and 2, where my job was to teach and help new students with learning C# and Java, general programming concepts (also object-oriented programming in programming 2), rate their course projects and supervise exams. In addition, I was part of the development of the university's C# game-making library <a href="https://github.com/Jypeli-JYU/Jypeli">Jypeli</a>.</p>
 
-          <p>Other notable projects I have done:</p>
+          <p>Other notable projects I have done or was part of:</p>
           <ul>
             <li>A fully working <a href="https://github.com/Konstig70/Playground/tree/main/httpPalvelin">HTTP server</a> built in Rust (which is actually hosting this page!)</li>
-            <li>A <a href="https://github.com/Konstig70/AiVideo-PhotoDetector">synthetic video detection software</a> built in Python</li>
+            <li>A <a href="https://github.com/Konstig70/AiVideo-PhotoDetector">synthetic video detection software</a> built in Python. This was a pair project for Junctions Agentic AI hackathon.</li>
             <li>A <a href="https://github.com/Konstig70/Studies/tree/main/Ohj2HT">fishing calendar app</a> built in Java</li>
             <li>A <a href="https://github.com/Konstig70/Playground/tree/main/cs2_stat_Tracker">statistic tracking app</a> for Counter Strike 2 built in C#</li>
             <li>An upgraded version of JavaFX's ComboBox called <a href="https://github.com/Konstig70/Playground/tree/main/DynamicComboBox">DynamicComboBox</a></li>
+            <li>A web-application that creates BibTex references built with React, ExpressJS and Node (this was a group project, where I was mainly responsible for the backend logic and database operations of the page, with some work in the frontend), which can be found <a href="https://ohtuminiprojektiryhm-10.onrender.com">here</a> (Note that due to render shutting down free webservices it might take a couple of minutes for the page to load fully due to it waiting for data from the backend).</li>
           </ul>
 
           <p>These and many other smaller projects can all be found on my GitHub page. All code from my hobby/school projects is open source, so feel free to use or modify them.</p>
@@ -98,7 +98,6 @@
       </div>
     </div>
 
-    <!-- JavaScript -->
     <script>
       function tuoEsiin(id) {
         const element = document.getElementById(id);
