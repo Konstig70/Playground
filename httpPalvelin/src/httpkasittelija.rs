@@ -63,8 +63,13 @@ pub fn kasittele_pyynto(viesti: &str) -> Vec<u8> {
     let koko = tavut.len();
     //Varmistetaan vielä minkä tyyppistä dataa lähetetään takaisin
     let tyyppi: &str;
-    //Voidaan suoraan unwrap sillä tässä vaiheessa ei pitäisi olla resurssia, jossa ei ole . 
-    let loppu = resurssi.split_at(resurssi.rfind(".").unwrap() + 1).1;
+    //Voitaisiin suoraan unwrap, sillä ei "pitäisi" olla mahdollista, että resursissa ei ole tässä
+    //vaiheessa .-merkkiä, mutta otetaan cloudflaresta opiksi ja käytetään kuitenkin unwrap_or_else
+    let jaettu_polku = resurssi.split_at_checked(resurssi.rfind(".").unwrap_or_else(|| resurssi.len()) + 1);
+    let loppu = match jaettu_polku {
+        Some(arvo) => arvo.1,
+        None => return "HTTP/1.1 404 Not Found\r\nContent-Type: text/html; charset=UTF-8\r\nContent-Length: 48\r\nConnection: close\r\n\r\n<html><body><h1>404 Not Found</h1></body></html>".to_string().into_bytes(),
+    };
     //Valitaan oikea tyyppi lähetettävälle tiedostolle
     match loppu {
         //Tuetaan seuraavia muotoja:
