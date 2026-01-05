@@ -144,7 +144,7 @@ Dont mention the actual scores in the justification, just reference them in a hu
 
 async function fecthAndGetResponse(formData) {
   try {
-    let response = await fetch("https://backend.konstalahtinen.dev", {
+    let response = await fetch("http://backend.konstalahtinen.dev", {
       method: "POST",
       body: formData
       });
