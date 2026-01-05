@@ -70,8 +70,8 @@ fn kasittele_yhteys(socket: &mut TcpStream) {
     println!("Suljetaan yhteys");
     
     match socket.shutdown(Shutdown::Both) {
-       Ok(()) => print!("Yhteys katkaistu"),
-       Err(_) => print!("Asiakas katkaisu yhteyden"), 
+       Ok(()) => println!("Yhteys katkaistu"),
+       Err(_) => println!("Asiakas katkaisu yhteyden"), 
     }
 }
 
