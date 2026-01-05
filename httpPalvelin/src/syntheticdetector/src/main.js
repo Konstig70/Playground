@@ -1,7 +1,7 @@
 
 async function submitVideo() {
     //Get necessary elements
-    const youtubeLink = document.getElementById('youtubeLink').value;
+    //const youtubeLink = document.getElementById('youtubeLink').value;
     const fileInput = document.getElementById('videoFile');
     const status = document.getElementById('status');
     const videoPreview = document.getElementById('videoPreview');
