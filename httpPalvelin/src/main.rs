@@ -71,7 +71,7 @@ fn kasittele_yhteys(socket: &mut TcpStream) {
     
     match socket.shutdown(Shutdown::Both) {
        Ok(()) => println!("Yhteys katkaistu"),
-       Err(_) => println!("Asiakas katkaisu yhteyden"), 
+       Err(_) => println!("Asiakas katkaisi yhteyden"), 
     }
 }
 
