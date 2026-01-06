@@ -10,6 +10,26 @@
       color: white;
       padding: 2rem;
       text-align: center;
+      font-weight:bold;
+      font-size: large;
+    }
+
+    footer {
+      background: linear-gradient(90deg, #1e3c72 0%, #2a5298 100%);
+      color: white;
+      padding-top: 2rem;
+      padding-bottom: 2rem;
+      font-size: large;
+      font-weight: bold;
+      text-align: center;
+      width: 100%;
+    }
+   
+   .priorityNotes {
+      display: flex;
+      justify-content: space-around;
+      align-items: center;
+      padding-bottom: 1rem;
     }
 
    header h1 {
