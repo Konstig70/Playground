@@ -86,6 +86,7 @@ impl<'a> HttpPyynto<'a> {
         return self.metodi.as_str();
     }
 
+    //Käsittelijä GET pyynnölle
     pub fn handle_get(self) -> Result<Vec<u8>, HttpError> {
         //Otetaan ensimmäinen rivi
         let pyynto = match self.osat.get(0) {
