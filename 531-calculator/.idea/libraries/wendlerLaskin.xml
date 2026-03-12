@@ -1,0 +1,9 @@
+<component name="libraryTable">
+  <library name="wendlerLaskin">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/src/wendlerLaskin.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

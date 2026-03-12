@@ -105,6 +105,7 @@ public class Main {
                     String[] split = s.split(" ");
                     split[0] = split[0].replace(',', '.');
                     float n = Float.parseFloat(split[0].trim());
+                    //12.3.2026, mitä helvettiä oon menny tekemää, eihä tästä saa mitää selvää :D
                     n = (float) (n + 2.5);
                     split[0] = String.valueOf(n);
                     line = split[0] + " " + split[1] + " " + split[2];
@@ -128,15 +129,17 @@ public class Main {
             writeFormatted(Fw, (float) (n * 0.65)," x 5");
             writeFormatted(Fw, (float) (n * 0.75)," x 5");
             writeFormatted(Fw, (float) (n * 0.85)," x 5+");
-
+            writeLine(Fw,"");
             writeLine(Fw, "Viikko 2:");
             writeFormatted(Fw, (float) (n * 0.70)," x 3");
             writeFormatted(Fw, (float) (n * 0.80)," x 3");
             writeFormatted(Fw, (float) (n * 0.90)," x 3+");
+            writeLine(Fw,"");
             writeLine(Fw, "Viikko 3:");
             writeFormatted(Fw, (float) (n * 0.75)," x 5");
             writeFormatted(Fw, (float) (n * 0.85)," x 3");
             writeFormatted(Fw, (float) (n * 0.95)," x 1+");
+            writeLine(Fw,"");
             writeLine(Fw, "Viikko 4:");
             writeFormatted(Fw, (float) (n * 0.40)," x 5");
             writeFormatted(Fw, (float) (n * 0.50)," x 5");
