@@ -11,6 +11,7 @@ pub fn kasittele_pyynto(viesti: &str) -> Vec<u8> {
     
     let vastaus = match http.get_method() {
         "GET" => http.handle_get(),
+        "POST" => http.handle_post(),
         _ => return http.handle_unknown()
     };
 

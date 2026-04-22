@@ -1,4 +1,4 @@
-use std::fs;
+use std::{collections::HashMap, fs::{self, File}, io::Write};
 
 //Kaikki tarvittavat http virheet
 const ERR_400: &str = "HTTP/1.1 400 Bad Request\r\nContent-Type: text/html; charset=UTF-8\r\nContent-Length: 50\r\nConnection: close\r\n\r\n<html><body><h1>400 Bad Request</h1></body></html>";
@@ -48,7 +48,8 @@ impl<'a> HttpPyynto<'a> {
         };
         println!("Method: {metodi}");
         match metodi {
-            "GET" => println!("Method ok!"),
+            "GET" => println!("Metodi get, ok!"),
+            "POST" => println!("Metodi post, ok!"),
             _ => return Err(HttpError(ERR_405)),
         }
 
@@ -162,6 +163,97 @@ impl<'a> HttpPyynto<'a> {
         return Ok(paa);
     }
 
+    pub fn handle_post(self) -> Result<Vec<u8>, HttpError>{
+        //Aloitetaan etsimällä "pyydetty resurssi" eli tässä tapauksessa mihin yritetään POST:aa 
+        let pyynto = match self.osat.get(0) {
+            //Logiikka on sama kuin GET pyynnössä eli etsitään resurssi
+            Some(polku) => match polku.split_whitespace().nth(1) {
+                Some(p) => p,
+                //None on tässä tapauksessa virheellinen pyyntö, sillä se ei sisältänyt resurssia
+                None => return Err(HttpError(ERR_400)), 
+            }
+
+            //Ja taas jos ekaa riviä ei ollut niin palautetaan virhe
+            None => return Err(HttpError(ERR_400))
+        };
+        
+        //nyt pyyntö pitää sisällään tiedon mitä pyydettiin, esim. /post
+        println!("pyydetty resurssi: {}",pyynto);
+
+        //Varmistetaan, että meiltä löytyy rietitys pyyntöön:
+        match pyynto {
+            //Jos löytyy kutsutaan oikeaa käsittelijää
+            "/post" => return self.route_post(),
+
+            //Muuten palautetaan virhe.
+            _ => return Err(HttpError(ERR_405))
+        }
+
+    }    
+
+    //Reititys /post pyyntöön, eli pyynnön backend logiikka, joka on /post pyynnölle vieraskirja!
+    fn route_post(self) -> Result<Vec<u8>, HttpError> {
+        
+        //Haetaan sisällön tyyppi ja varmistetaan, että sitä tuetaan
+        let sisalto_tyyppi = match self.osat.iter().find(|&x| x.starts_with("Content-Type")) {
+            Some(c) => match c.split(" ").last() {
+                Some(tyyppi) => tyyppi.to_owned(),
+                None => return Err(HttpError(ERR_400))
+            },
+            None => return Err(HttpError(ERR_400)),
+        };
+        //Haetaan sisällön pituus:
+        let _pituus = match self.osat.iter().find(|&x| x.starts_with("Content-Length")) {
+            //Jaetaan Content-Length välilyönnillä. pituus on aina muotoa Content-Length: pituus,
+            //muutoin http 400, sillä pituus ei ole välitetty oikein.
+            Some(v) => match v.split(" ").last() {
+                Some(len) => len.parse::<usize>(),
+                None => return Err(HttpError(ERR_400)),
+            },
+            None => return Err(HttpError(ERR_400)),
+        };
+
+        println!("Sisältö tyyppi: {sisalto_tyyppi}");
+        //Seuraavaksi parsitaan sisältö oikealla tyylillä tai palautetaan virhe, jos sisältöä ei
+        //tueta
+        let data: HashMap<String, String> = match sisalto_tyyppi.as_str().trim() {
+            
+            "application/x-www-form-urlencoded" => {
+                //Lomake data on yksinkertaista avain+arvo pari dataa, joten parsitaan se
+                //Map-tietorakenteeseen.
+                match self.osat.iter().find(|&x| x.starts_with("name=")) {
+                    Some(v) => {
+                        //Iteroidaan kaiken läpi
+                        v.split("&").map(|pari| {
+                                    let (k,v) = pari.split_once("=").unwrap_or(("",""));
+                                    (k.to_string(),v.to_string())
+                        }).collect() //Tässä collect tietää, että halutaan HashMap tyypin takia.
+                        
+                    },
+                    None => return Err(HttpError(ERR_400)),
+                }
+            },
+            _ => return Err(HttpError(ERR_415))
+        };
+        println!("Datasta saatiin:");
+        data.iter().for_each(|(k,v)| println!("{} = {}",k,v));
+        
+        let mut tiedosto = match File::options().append(true).open("vieraat.csv") {
+            Ok(f) => f,
+            Err(e) => {println!("Virhe {}", e); return Err(HttpError(ERR_400));}
+        };
+        let nimi = data.get("name");
+        let fact = data.get("fact");
+
+        match (nimi, fact) {
+            (Some(n), Some(f)) => {tiedosto.write(&format!("{n},{f}\n").into_bytes()); },
+            _ => return Err(HttpError(ERR_400)),
+        }
+
+        return Ok("HTTP/1.1 200 OK\r\n".to_string().into_bytes());
+    }
+
+    //Käsittelee tuntemattoman metodin
     pub fn handle_unknown(self) -> Vec<u8> {
         ERR_405.to_string().into_bytes()
     }
