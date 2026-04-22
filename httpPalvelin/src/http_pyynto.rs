@@ -221,6 +221,7 @@ impl<'a> HttpPyynto<'a> {
             "application/x-www-form-urlencoded" => {
                 //Lomake data on yksinkertaista avain+arvo pari dataa, joten parsitaan se
                 //Map-tietorakenteeseen.
+                //TODO: FIKSAA TÄHÄN KUNNON PARSEEMINEN!!!
                 match self.osat.iter().find(|&x| x.starts_with("name=")) {
                     Some(v) => {
                         //Iteroidaan kaiken läpi
@@ -238,19 +239,19 @@ impl<'a> HttpPyynto<'a> {
         println!("Datasta saatiin:");
         data.iter().for_each(|(k,v)| println!("{} = {}",k,v));
         
+        //Avataan tiedosto.
         let mut tiedosto = match File::options().append(true).open("vieraat.csv") {
             Ok(f) => f,
             Err(e) => {println!("Virhe {}", e); return Err(HttpError(ERR_400));}
         };
-        let nimi = data.get("name");
-        let fact = data.get("fact");
-
-        match (nimi, fact) {
-            (Some(n), Some(f)) => {tiedosto.write(&format!("{n},{f}\n").into_bytes()); },
+        //Haetaan datasta tiedot ja kirjoitetaan ne tiedostoon.
+        match (data.get("nimi"), data.get("fact")) {
+            (Some(n), Some(f)) => {let _ = tiedosto.write(&format!("{n},{f}\n").into_bytes()); },
             _ => return Err(HttpError(ERR_400)),
         }
 
-        return Ok("HTTP/1.1 200 OK\r\n".to_string().into_bytes());
+        //Palautetaan viesti onnistumisesta.
+        return Ok("HTTP/1.1 201 Created\r\n".to_string().into_bytes());
     }
 
     //Käsittelee tuntemattoman metodin
